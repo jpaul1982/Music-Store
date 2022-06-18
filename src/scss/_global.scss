@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1580px !important;
+}
+
+a, p {
+  font-family: $font-primary;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+  &:hover {
+    text-decoration: none;
+    color: unset;
+  }
+}
+
+[data-menu="active"] main {
+filter: blur(2px);
+transition: filter .1s ease-in-out;
+}
+
+section {
+  padding: 2rem 0 5rem;
+}

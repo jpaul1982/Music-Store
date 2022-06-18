@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;400;700&family=Lobster&display=swap"); /* _hamburger.scss */
+[data-menu=inactive] .hamburger {
+  align-items: center;
+  background: none;
+  border-radius: 0;
+  height: 2rem;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  width: 2rem;
+  margin-left: 2rem;
+  z-index: 21;
+}
+[data-menu=inactive] .hamburger span {
+  background-color: #242930;
+  width: 100%;
+  height: 2px;
+}
+[data-menu=inactive] .hamburger span:nth-child(1) {
+  transform: rotate(0);
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+[data-menu=inactive] .hamburger span:nth-child(2) {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.2s ease-out;
+}
+[data-menu=inactive] .hamburger span:nth-child(3) {
+  transform: rotate(0);
+  position: relative;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+[data-menu=active] .hamburger {
+  align-items: center;
+  background: none;
+  border-radius: 0;
+  height: 2rem;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  width: 2rem;
+  z-index: 21;
+  margin-left: 0;
+}
+[data-menu=active] .hamburger span {
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+}
+[data-menu=active] .hamburger span:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 10px;
+  transition: all 0.5s ease-in-out;
+}
+[data-menu=active] .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.2s ease-out;
+}
+[data-menu=active] .hamburger span:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -9.5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  font-size: 12.8px;
+}
+.logo img {
+  max-width: 25px;
+}
+
+[data-menu=inactive] .header-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: -300px;
+  transition: all 0.2s ease-in-out;
+}
+[data-menu=inactive] .header-menu__nav {
+  display: flex;
+  margin: 0;
+}
+[data-menu=inactive] .header-menu__nav li {
+  list-style-type: none;
+  padding: 0 1rem;
+  position: relative;
+  display: inline-block;
+}
+@media (min-width: 991px) {
+  [data-menu=inactive] .header-menu__nav li {
+    padding: 0 1.5rem;
+  }
+}
+[data-menu=inactive] .header-menu__nav li .sub-menu {
+  z-index: -10;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  background-color: #fff;
+  width: 0%;
+  transition: width 0.3s ease-out, opacity 0.3s ease-out 0.3s;
+  padding-top: 2rem;
+}
+[data-menu=inactive] .header-menu__nav li .sub-menu li {
+  margin-bottom: 1rem;
+  position: relative;
+}
+[data-menu=inactive] .header-menu__nav li .sub-menu li a {
+  font-size: 25px;
+}
+[data-menu=inactive] .header-menu__nav li a {
+  font-size: 18px;
+}
+[data-menu=inactive] .header-menu__nav li:hover .sub-menu {
+  opacity: 1;
+  width: 200px;
+  height: auto;
+  transition: width 0.3s ease-out, opacity 0.3s ease-out;
+  z-index: 100;
+}
+@media (min-width: 768px) {
+  [data-menu=inactive] .header-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    position: relative;
+    left: 0px;
+  }
+}
+
+[data-menu=active] .header-menu {
+  display: block;
+  background-color: #242930;
+  width: 70%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 20;
+  transition: all 0.2s ease-in-out;
+}
+@media (min-width: 500px) {
+  [data-menu=active] .header-menu {
+    width: 60%;
+  }
+}
+[data-menu=active] .header-menu__nav {
+  position: relative;
+  top: 120px;
+  left: 2rem;
+}
+[data-menu=active] .header-menu__nav li {
+  list-style-type: none;
+  padding-bottom: 0.5rem;
+}
+[data-menu=active] .header-menu__nav li a {
+  color: #fff;
+  font-size: 25px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1580px !important;
+}
+
+a, p {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+[data-menu=active] main {
+  filter: blur(2px);
+  transition: filter 0.1s ease-in-out;
+}
+
+section {
+  padding: 2rem 0 5rem;
+}
+
+.hero-section {
+  position: relative;
+  max-height: 750px;
+  height: 100%;
+}
+.hero-section__content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: auto;
+  z-index: 10;
+  flex-direction: column;
+}
+@media (min-width: 991px) {
+  .hero-section__content {
+    flex-direction: row;
+    height: 100%;
+    padding: 0 5%;
+  }
+}
+.hero-section__content h1 {
+  font: normal normal 95px/116px "Lobster", cursive;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+@media (min-width: 1140px) {
+  .hero-section__content h1 {
+    font: normal normal 120px/116px "Lobster", cursive;
+  }
+}
+.hero-section__logo {
+  max-width: 345px;
+  width: 40%;
+  opacity: 0.9;
+  display: block;
+  text-align: center;
+  padding: 0 35px 0 45px;
+}
+@media (min-width: 991px) {
+  .hero-section__logo {
+    width: 20%;
+  }
+}
+.hero-section .hero-slider {
+  margin: 0 1rem;
+  position: relative;
+  z-index: -1;
+}
+.hero-section .hero-slider button {
+  border: none;
+}
+.hero-section .hero-slider .slick-track {
+  display: flex !important;
+}
+.hero-section .hero-slider .slick-slide {
+  height: inherit !important;
+  position: relative;
+}
+.hero-section .hero-slider .slick-slide::after {
+  content: "";
+  background: linear-gradient(294deg, rgba(36, 41, 48, 0.7059961485) 0%, rgba(36, 41, 48, 0.4078606443) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.hero-section .hero-slider img {
+  width: 100%;
+  max-height: 750px;
+  min-height: 450px;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.filter-target {
+  width: 100%;
+}
+
+.card {
+  flex-basis: 25%;
+  justify-content: center;
+  flex-direction: row;
+  border: none;
+  padding-bottom: 5rem;
+}
+.card__inner {
+  height: 100%;
+  width: 100%;
+}
+.card img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.sidebar {
+  flex-basis: 25%;
+}

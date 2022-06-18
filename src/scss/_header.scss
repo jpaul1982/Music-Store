@@ -1,0 +1,99 @@
+.logo {
+  font-family: $font-headline;
+  font-size: 12.8px;
+  img {
+    max-width: 25px;
+  }
+}
+
+// md-width and larger
+[data-menu="inactive"] .header-menu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: -300px;
+  transition: all 0.2s ease-in-out;
+
+  &__nav {
+    display: flex;
+    margin: 0;
+    li {
+      list-style-type: none;
+      padding: 0 1rem;
+      position: relative;
+      display: inline-block;
+      @media (min-width: $lg-width) {
+        padding: 0 1.5rem;
+      }
+      & .sub-menu {
+        z-index: -10;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        background-color: $color-white;
+        width: 0%;
+        transition: width .3s ease-out, opacity .3s ease-out .3s;
+        padding-top: 2rem;
+        & li {
+          margin-bottom: 1rem;
+          position: relative;
+          a {
+            font-size: 25px;
+          }
+        }
+      }
+      a {
+        font-size: 18px;
+      }
+      &:hover .sub-menu {
+        opacity: 1;
+        width: 200px;
+        height: auto;
+        transition: width .3s ease-out, opacity .3s ease-out;
+        z-index: 100;
+      }
+    }
+  }
+  @media (min-width: $md-width) {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    position: relative;
+    left: 0px;
+  }
+}
+
+[data-menu="active"] .header-menu {
+  display: block;
+  background-color: #242930;
+  width: 70%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 20;
+  transition: all 0.2s ease-in-out;
+  @media (min-width: $sm-width) {
+    width: 60%;
+  }
+
+  &__nav {
+    position: relative;
+    top: 120px;
+    left: 2rem;
+    li {
+      list-style-type: none;
+      padding-bottom: 0.5rem;
+      a {
+        color: $color-white;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+.cart {
+}

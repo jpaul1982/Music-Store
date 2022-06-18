@@ -1,0 +1,44 @@
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$parts = parse_url($url)['path'];
+$new_parts = str_replace('/',' ',$parts);
+$result = (explode(" ",$new_parts));
+$type = $result[1];
+$cat_id = get_cat_ID ($result[2]);
+
+   if (!empty($product_price)) {
+        $args = array(
+            'cat' => $product_cat,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'color',
+                    'field' => 'term_id',
+                    'terms' => $product_price
+                )
+            ),
+
+        );
+    }
+
+    if (!empty($product_color)) {
+        $args = array(
+            'cat' => $product_cat,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'color',
+                    'field' => 'term_id',
+                    'terms' => $product_color
+                )
+            ),
+
+        );
+    }
+
+      <!-- <?php
+      $categories = get_categories();
+      $cur_arr = [];
+      foreach ($categories as $category) :
+        if ($category->category_parent === $cat_id) {
+          array_push($cur_arr, $category);
+        }
+      endforeach;
+      ?> -->
